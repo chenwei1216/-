@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/iconfont.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/bootsnav.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -28,6 +28,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
+    <!-- 加载动画 -->
     <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
@@ -77,6 +78,7 @@
             </div>
         </nav>
 
+        <!-- 主页轮播 -->
         <section id="home" class="home bg-black fix">
             <div class="overlay"></div>
             <div class="container">
@@ -112,6 +114,7 @@
             </div>
         </section>
 
+        <!-- 综合 -->
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
@@ -157,6 +160,7 @@
             </div>
         </section>
 
+        <!-- 下面内容完全保持你原来的一模一样 -->
         <section id="business" class="business bg-grey roomy-70">
             <div class="container">
                 <div class="row">
@@ -309,12 +313,12 @@
         </footer>
     </div>
 
+    <!-- JS 顺序严格修复：先jQuery → Bootstrap → 其他插件，删除重复slick -->
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/jquery.easing.1.3.js"></script>
-    <script src="assets/css/slick/slick.js"></script>
     <script src="assets/css/slick/slick.min.js"></script>
     <script src="assets/js/jquery.collapse.js"></script>
     <script src="assets/js/bootsnav.js"></script>
@@ -324,6 +328,12 @@
     <script>
         $(window).on('load', function(){
             setTimeout(()=>{$('#loading').fadeOut()}, 700);
+            // 手动初始化首页轮播
+            $('.hello_slid').slick({
+                autoplay:true,
+                dots:true,
+                arrows:false
+            });
         });
 
         function openChatWindow() {
