@@ -28,7 +28,6 @@
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
-    <!-- 加载动画 -->
     <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
@@ -78,7 +77,6 @@
             </div>
         </nav>
 
-        <!-- 主页轮播 -->
         <section id="home" class="home bg-black fix">
             <div class="overlay"></div>
             <div class="container">
@@ -114,7 +112,6 @@
             </div>
         </section>
 
-        <!-- 综合 -->
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
@@ -125,8 +122,7 @@
                                     <i class="fa fa-thumbs-o-up"></i>
                                 </div>
                                 <div class="f_item_text">
-                                    <!-- ✅ 修复：新窗口打开学生端，不覆盖 -->
-                                    <h3><a href="../青科学生端/student.html" target="_blank" rel="noopener">&nbsp;学生端</a></h3>
+                                    <h3><a href="青科学生端/student.html" target="_blank" rel="noopener">&nbsp;学生端</a></h3>
                                     <p>&nbsp;AI游戏化课程---趣味学科学</p>
                                     <p>&nbsp;（点击上方学生端可进入）</p>
                                 </div>
@@ -161,7 +157,6 @@
             </div>
         </section>
 
-        <!-- 下面内容完全保持你原来的一模一样 -->
         <section id="business" class="business bg-grey roomy-70">
             <div class="container">
                 <div class="row">
@@ -314,7 +309,6 @@
         </footer>
     </div>
 
-    <!-- JS -->
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -328,12 +322,10 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        // ✅ 修复1：加载动画自动消失
         $(window).on('load', function(){
             setTimeout(()=>{$('#loading').fadeOut()}, 700);
         });
 
-        // ✅ 修复2：Coze智能体 → 新窗口打开，永远不被拦截！
         function openChatWindow() {
             window.open(
                 "https://www.coze.cn/s/CEzn9wEp4q4/", 
