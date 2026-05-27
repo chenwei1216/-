@@ -5,7 +5,7 @@
     <title>青科畅学科普云平台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- 去掉谷歌字体，国内加载失败导致错乱 -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
@@ -23,12 +23,16 @@
             width: 100% !important;
             z-index: 99999 !important;
         }
+        /* 强制栅格生效，防止GitHub错乱 */
+        .row { margin-left: -15px; margin-right: -15px; }
+        .col-md-4 { width:33.333%; float:left; padding:0 15px; }
+        .col-md-6 { width:50%; float:left; padding:0 15px; }
+        .col-sm-3 { width:25%; float:left; padding:0 15px; }
     </style>
     <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse">
 
-    <!-- 加载动画 -->
     <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
@@ -78,7 +82,6 @@
             </div>
         </nav>
 
-        <!-- 主页轮播 -->
         <section id="home" class="home bg-black fix">
             <div class="overlay"></div>
             <div class="container">
@@ -114,7 +117,6 @@
             </div>
         </section>
 
-        <!-- 综合 -->
         <section id="features" class="features">
             <div class="container">
                 <div class="row">
@@ -160,7 +162,6 @@
             </div>
         </section>
 
-        <!-- 下面内容完全保持你原来的一模一样 -->
         <section id="business" class="business bg-grey roomy-70">
             <div class="container">
                 <div class="row">
@@ -313,7 +314,7 @@
         </footer>
     </div>
 
-    <!-- JS 顺序严格修复：先jQuery → Bootstrap → 其他插件，删除重复slick -->
+    <!-- JS顺序严格：jQuery → Bootstrap → 其他，去重 -->
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
@@ -326,22 +327,16 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+        $(function(){
+            // 强制初始化，防止GitHub加载延迟
+            $('.hello_slid').slick({autoplay:true,dots:true,arrows:false});
+        });
         $(window).on('load', function(){
             setTimeout(()=>{$('#loading').fadeOut()}, 700);
-            // 手动初始化首页轮播
-            $('.hello_slid').slick({
-                autoplay:true,
-                dots:true,
-                arrows:false
-            });
         });
 
         function openChatWindow() {
-            window.open(
-                "https://www.coze.cn/s/CEzn9wEp4q4/", 
-                "CozeChat", 
-                "width=420,height=650,top=100,right=50,scrollbars=yes"
-            );
+            window.open("https://www.coze.cn/s/CEzn9wEp4q4/","CozeChat","width=420,height=650,top=100,right=50,scrollbars=yes");
         }
     </script>
 </body>
